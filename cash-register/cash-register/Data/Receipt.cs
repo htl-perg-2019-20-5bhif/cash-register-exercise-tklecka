@@ -13,8 +13,10 @@ namespace cash_register.Data
         [MinLength(1)]
         public List<ReceiptLine> Lines { get; set; }
         [JsonPropertyName("timestamp")]
+        [Required]
         public DateTime Timestamp { get; set; }
         [JsonPropertyName("totalPrice")]
+        [Required]
         public float TotalPrice { get; set; }
     }
 }

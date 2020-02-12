@@ -7,15 +7,19 @@ namespace cash_register.Data
     {
         [JsonPropertyName("id")]
         public int ID { get; set; }
-        [JsonPropertyName("productID")]
-        [Required]
-        public int ProductID { get; set; }
         [JsonPropertyName("product")]
         public Product Product { get; set; }
         [JsonPropertyName("pieces")]
         [Required]
         public int Pieces { get; set; }
         [JsonPropertyName("totalPrice")]
+        [Required]
         public float TotalPrice { get; set; }
     }
+}
+
+public class ReceiptLineDto
+{
+    public int ProductID { get; set; }
+    public int Amount { get; set; }
 }

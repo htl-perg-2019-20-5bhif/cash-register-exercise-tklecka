@@ -10,7 +10,7 @@ using cash_register;
 namespace cash_register.Migrations
 {
     [DbContext(typeof(CashRegisterDataContext))]
-    [Migration("20200211192407_init")]
+    [Migration("20200212174105_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -68,7 +68,7 @@ namespace cash_register.Migrations
                     b.Property<int>("Pieces")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductID")
+                    b.Property<int?>("ProductID")
                         .HasColumnType("int");
 
                     b.Property<int?>("ReceiptID")
@@ -90,9 +90,7 @@ namespace cash_register.Migrations
                 {
                     b.HasOne("cash_register.Data.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductID");
 
                     b.HasOne("cash_register.Data.Receipt", null)
                         .WithMany("Lines")

@@ -41,7 +41,7 @@ namespace cash_register.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductID = table.Column<int>(nullable: false),
+                    ProductID = table.Column<int>(nullable: true),
                     Pieces = table.Column<int>(nullable: false),
                     TotalPrice = table.Column<float>(nullable: false),
                     ReceiptID = table.Column<int>(nullable: true)
@@ -54,7 +54,7 @@ namespace cash_register.Migrations
                         column: x => x.ProductID,
                         principalTable: "Products",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ReceiptLines_Receipts_ReceiptID",
                         column: x => x.ReceiptID,

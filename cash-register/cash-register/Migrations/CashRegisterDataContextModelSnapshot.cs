@@ -66,7 +66,7 @@ namespace cash_register.Migrations
                     b.Property<int>("Pieces")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductID")
+                    b.Property<int?>("ProductID")
                         .HasColumnType("int");
 
                     b.Property<int?>("ReceiptID")
@@ -88,9 +88,7 @@ namespace cash_register.Migrations
                 {
                     b.HasOne("cash_register.Data.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductID");
 
                     b.HasOne("cash_register.Data.Receipt", null)
                         .WithMany("Lines")
