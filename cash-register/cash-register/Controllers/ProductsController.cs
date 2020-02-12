@@ -25,20 +25,6 @@ namespace cash_register.Controllers
             return await _context.Products.ToListAsync();
         }
 
-        [HttpGet]
-        public async Task<IEnumerable<Product>> Get([FromQuery]string nameFilter = null)
-        {
-            IQueryable<Product> products = _context.Products;
-
-            // Apply filter if one is given
-            if (!string.IsNullOrEmpty(nameFilter))
-            {
-                products = products.Where(p => p.Name.Contains(nameFilter));
-            }
-
-            return await products.ToListAsync();
-        }
-
         // GET: api/Products/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)

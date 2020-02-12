@@ -14,7 +14,7 @@ namespace cash_register.Migrations
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: false),
-                    Price = table.Column<float>(nullable: false)
+                    Price = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -28,7 +28,7 @@ namespace cash_register.Migrations
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Timestamp = table.Column<DateTime>(nullable: false),
-                    TotalPrice = table.Column<float>(nullable: false)
+                    TotalPrice = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -43,7 +43,7 @@ namespace cash_register.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductID = table.Column<int>(nullable: true),
                     Pieces = table.Column<int>(nullable: false),
-                    TotalPrice = table.Column<float>(nullable: false),
+                    TotalPrice = table.Column<decimal>(nullable: false),
                     ReceiptID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>

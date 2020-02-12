@@ -17,6 +17,6 @@ namespace cash_register.Data
         public DateTime Timestamp { get; set; }
         [JsonPropertyName("totalPrice")]
         [Required]
-        public float TotalPrice { get; set; }
+        public decimal TotalPrice { get; set; }
     }
 }

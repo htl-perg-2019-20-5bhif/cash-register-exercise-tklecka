@@ -12,8 +12,7 @@ namespace cash_register.Data
         public string Name { get; set; }
         [JsonPropertyName("price")]
         [Required]
-        [Range(0, float.MaxValue)]
-        public float Price { get; set; }
+        public decimal Price { get; set; }
 
     }
 }

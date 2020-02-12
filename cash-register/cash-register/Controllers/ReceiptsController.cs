@@ -24,7 +24,7 @@ namespace cash_register.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Receipt>>> GetReceipts()
         {
-            return await _context.Receipts.ToListAsync();
+            return await _context.Receipts.Include(r => r.Lines).ToListAsync();
         }
 
         // GET: api/Receipts/5
